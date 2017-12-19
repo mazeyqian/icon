@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="List.js"></script>
+<script>
+List.prototype.insertThen = function (element) {
+    let type = typeof element;
+    if (type === `number`) {
+        // debugger;
+        for (let i = 0; i < this.dataStore.length; i++) {
+            if (typeof this.dataStore[i] === `number` && element > this.dataStore[i]) { // 同时满足是数字然后插入的元素大于数组内的元素
+                this.append(element);
+                return true;
+            }
+        }
+    } else {
+        let newArr = this.dataStore.filter((val) => {
+            return typeof val !== `number`;
+        }).concat([element]).sort();
+        if (newArr.indexOf(element) === (newArr.length - 1)) {
+            this.append(element);
+            return true;
+        }
+    }
+    return false;
+};
+// 示例
+let DataThen = new List();
+DataThen.append(`Mazey`);
+DataThen.append(`Cherrie`);
+DataThen.append(`Luna`);
+DataThen.append(`John`);
+DataThen.append(`July`);
+DataThen.append(23);
+DataThen.append(73);
+console.log(DataThen.toString()); // ["Mazey", "Cherrie", "Luna", "John", "July", 23, 73]
+DataThen.insertThen(99);
+DataThen.insertThen(12);
+console.log(DataThen.toString()); // ["Mazey", "Cherrie", "Luna", "John", "July", 23, 73, 99]
+DataThen.insertThen(`Jay`);
+DataThen.insertThen(`Zero`);
+console.log(DataThen.toString()); // ["Mazey", "Cherrie", "Luna", "John", "July", 23, 73, 99, "Zero"]
+</script>
+</body>
+</html>
