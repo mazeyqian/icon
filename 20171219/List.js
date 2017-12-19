@@ -3,7 +3,7 @@ function List () {
     this.listSize = 0; // 列表的元素个数
     this.pos = 0; // 列表的当前位置
     this.dataStore = []; // 初始化一个空数组来保存列表元素
-    this.clear = clear;
+    this.clear = clear; // 清空列表中的所有元素
     this.find = find;
     this.toString = toString;
     this.insert = insert;
@@ -16,9 +16,9 @@ function List () {
     this.hasNext = hasNext;
     this.hasPrev = hasPrev;
     this.length = length;
-    this.currPos = currPos;
+    this.currPos = currPos; // 返回列表的当前位置
     this.moveTo = moveTo;
-    this.getElement = getElement;
+    this.getElement = getElement; // 返回当前位置的元素
     this.contains = contains;
 }
 // append: 给列表添加元素
