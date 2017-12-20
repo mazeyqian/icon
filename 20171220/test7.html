@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="Stack.js"></script>
+<script>
+let Candy = `rywrryywwrrryyywww`, newCandy = ``; // 模拟糖果
+let s = new Stack();
+let len = Candy.length;
+while (len--) {
+    if (Candy[len] !== `y`) {
+        s.push(Candy[len]);
+    }
+}
+while (s.length()) {
+    newCandy += s.pop();
+}
+console.log(newCandy); // rwrrwwrrrwww
+</script>
+</body>
+</html>

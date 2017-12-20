@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="Stack.js"></script>
+<script>
+function findWrongBrace (express) {
+    let s = new Stack();
+    for (let i = 0; i < express.length; ++i) {
+        if (express[i] === `(`) {
+            s.push(i);
+        } else if (express[i] === `)`) {
+            s.pop();
+        }
+    }
+    return `${express}的第${s.peek() + 1}个字符是不匹配的括号。`;
+}
+// 示例
+console.log(findWrongBrace(`2.3 + 23 / 12 + (3.14159 * 0.24`)); // 2.3 + 23 / 12 + (3.14159 * 0.24的第17个字符是不匹配的括号。
+</script>
+</body>
+</html>
