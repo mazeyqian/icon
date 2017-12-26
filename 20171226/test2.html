@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="LList.js"></script>
+<script>
+let names = new LList();
+names.insert('Mazey', 'head');
+names.insert('Cherrie', 'Mazey');
+names.insert('John', 'Cherrie');
+names.display();
+names.remove('Mazey');
+names.display();
+names.remove('John');
+names.display();
+</script>
+</body>
+</html>
