@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="DList.js"></script>
+<script>
+// 向前移动一位
+DList.prototype.goNext = function (thisNode) {
+    let node1, node2, node3, node4;
+    if (thisNode.next.element !== null) {
+        node1 = thisNode.previous;
+        node2 = thisNode;
+        node3 = thisNode.next;
+        node4 = thisNode.next.next;
+        // 位置调整
+        node1.next = node3;
+        node3.previous = node1;
+        node3.next = node2;
+        node2.previous = node3;
+        node2.next = node4;
+        node4.previous = node2;
+    }
+};
+DList.prototype.back = function (n, item) {
+    let currNode  = this.find(item);
+    while (n--) {
+        this.goNext(currNode);
+    }
+};
+// 示例
+let names = new DList();
+names.insert('Mazey', 'head');
+names.insert('Cherrie', 'Mazey');
+names.insert('John', 'Cherrie');
+names.insert('Luna', 'John');
+names.insert('Ada', 'Luna');
+names.display();
+console.log('---');
+names.back(2, 'Cherrie');
+names.display(); // Mazey, John, Luna, Cherrie, Ada
+</script>
+</body>
+</html>
