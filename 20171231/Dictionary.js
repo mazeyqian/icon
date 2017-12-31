@@ -18,7 +18,7 @@ function remove (key) {
 }
 function showAll () {
     let datakeys = Array.prototype.slice.call(Object.keys(this.dataStore));
-    for (let key in datakeys) {
+    for (let key in datakeys.sort()) {
         console.log(`${datakeys[key]} -> ${this.dataStore[datakeys[key]]}`);
     }
 }
