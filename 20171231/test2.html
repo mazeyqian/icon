@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="Dictionary.js"></script>
+<script>
+let d = new Dictionary();
+d.add('Mazey', 24);
+d.add('Cherrie', 18);
+d.add('Luna', 23);
+d.add('John', 28);
+d.add('Ada', 25);
+console.log(`Cherrie's age: ${d.find('Cherrie')}`);
+console.log(d.count());
+d.remove('Cherrie');
+d.clear();
+d.showAll();
+console.log(d.count());
+// console.log(d.dataStore.length);
+console.log(d.dataStore);
+</script>
+</body>
+</html>
